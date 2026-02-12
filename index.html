@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Déclaration d'amour 💖</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Lucide Icons -->
+<script src="https://cdn.jsdelivr.net/npm/lucide/dist/lucide.min.js"></script>
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: none;
+    overflow-y: auto; /* Défilement vertical activé */
+    min-height: 100vh;
+  }
+
+  /* Carte centrée avec marge */
+  .card {
+    width: 90%;
+    max-width: 650px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    margin: 40px auto; /* Centrer horizontalement et marge verticale */
+  }
+
+  /* Photo en background */
+  .card::before {
+    content: "";
+    background: url('photo.jpeg') center/cover no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: brightness(0.55);
+  }
+
+  .card-body {
+    position: relative;
+    z-index: 2;
+    padding: 35px 25px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 25px;
+  }
+
+  h1, h2, p {
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  }
+
+  h1 { font-size: 2em; margin-bottom: 20px; }
+  h2 { font-size: 1.7em; margin-bottom: 20px; }
+  p { font-size: 1.15em; line-height: 1.8; margin-bottom: 25px; }
+
+  .btn-love {
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 12px 25px;
+    font-size: 1.15em;
+    background: linear-gradient(135deg, #f9a8d4, #ff6b6b);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    transition: transform 0.3s, background 0.3s;
+    margin-bottom: 20px;
+  }
+
+  .btn-love:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff6b6b, #f9a8d4);
+  }
+
+  .heart-icon {
+    width: 48px;
+    height: 48px;
+    margin: 10px auto;
+    stroke: #ff6b81;
+    fill: #ff6b81;
+    animation: pulse 1s infinite;
+  }
+
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="card-body">
+    <h1>💌 Une déclaration pour toi...</h1>
+
+    <p>
+      Mon chouchou d’amour,<br><br>
+      Depuis le premier jour, tu as illuminé ma vie de mille sourires et
+      de moments inoubliables. Chaque instant passé à tes côtés
+      me rappelle combien je suis chanceuse de t’avoir.<br><br>
+      Ta douceur, ta patience et ton rire contagieux rendent mes journées
+      plus belles. Avec toi, chaque moment devient magique, chaque
+      banalité se transforme en souvenir précieux.<br><br>
+      Tu es mon confident, mon complice et mon refuge. Quand je pense à
+      nous, je me rends compte que chaque détail de notre histoire est
+      unique et merveilleux. Les fous rires, les balades, les soirées
+      tranquilles… tout prend un sens plus profond avec toi.<br><br>
+      Mounir, tu es mon soleil, ma joie et mon amour éternel. 💖
+      Je veux partager chaque seconde de ma vie avec toi, traverser
+      toutes les saisons à tes côtés et construire un futur rempli
+      d’amour, de complicité et de bonheur infini.<br><br>
+      Chaque jour avec toi est un cadeau que je veux chérir pour toujours.
+      Je t’aime plus que les mots ne pourront jamais le dire.
+    </p>
+
+    <!-- Icône cœur pulsant -->
+    <svg class="heart-icon" stroke="currentColor" fill="currentColor"><use href="#Heart"/></svg>
+
+    <h2>JE T’AIME MOUNIR</h2>
+
+   
+    <div class="fw-bold fs-5">
+      Pour toujours, ton amour <br>💖 Ta maguette 💖
+    </div>
+  </div>
+</div>
+
+<script>
+  
+
+  lucide.createIcons();
+</script>
+
+</body>
+</html>
