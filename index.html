@@ -1,164 +1,148 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Déclaration d'amour 💖</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Déclaration d'amour 💖</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(to right, #ffdde1, #ee9ca7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-    }
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    /* Carte principale */
-    .card {
-      background: rgba(255, 255, 255, 0.15);
-      padding: 35px;
-      border-radius: 25px;
-      width: 90%;
-      max-width: 750px;
-      text-align: center;
-      color: white;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      backdrop-filter: blur(12px);
-      position: relative;
-      z-index: 2;
-    }
+<!-- Lucide Icons -->
+<script src="https://cdn.jsdelivr.net/npm/lucide/dist/lucide.min.js"></script>
 
-    /* Photo */
-    img {
-      width: 100%;
-      border-radius: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    }
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: none;
+    overflow-y: auto; /* Défilement vertical activé */
+    min-height: 100vh;
+  }
 
-    h1 {
-      font-size: 2.3em;
-      margin-bottom: 10px;
-    }
+  /* Carte centrée avec marge */
+  .card {
+    width: 90%;
+    max-width: 650px;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: white;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    margin: 40px auto; /* Centrer horizontalement et marge verticale */
+  }
 
-    p {
-      font-size: 1.15em;
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
+  /* Photo en background */
+  .card::before {
+    content: "";
+    background: url('photo.jpeg') center/cover no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: brightness(0.55);
+  }
 
-    .heart {
-      font-size: 3.5em;
-      animation: pulse 1s infinite;
-      margin: 15px 0;
-    }
+  .card-body {
+    position: relative;
+    z-index: 2;
+    padding: 35px 25px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 25px;
+  }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
+  h1, h2, p {
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  }
 
-    /* Bouton */
-    button {
-      padding: 15px 30px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 40px;
-      cursor: pointer;
-      background: white;
-      color: #ee4b6a;
-      font-weight: bold;
-      transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
-    }
+  h1 { font-size: 2em; margin-bottom: 20px; }
+  h2 { font-size: 1.7em; margin-bottom: 20px; }
+  p { font-size: 1.15em; line-height: 1.8; margin-bottom: 25px; }
 
-    button:hover {
-      background: #ee4b6a;
-      color: white;
-      transform: scale(1.05);
-    }
+  .btn-love {
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 12px 25px;
+    font-size: 1.15em;
+    background: linear-gradient(135deg, #f9a8d4, #ff6b6b);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    transition: transform 0.3s, background 0.3s;
+    margin-bottom: 20px;
+  }
 
-    /* Cœurs qui tombent */
-    .falling-hearts span {
-      position: absolute;
-      top: -10px;
-      font-size: 20px;
-      animation: fall 6s linear infinite;
-      opacity: 0.8;
-    }
+  .btn-love:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #ff6b6b, #f9a8d4);
+  }
 
-    @keyframes fall {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(110vh); }
-    }
+  .heart-icon {
+    width: 48px;
+    height: 48px;
+    margin: 10px auto;
+    stroke: #ff6b81;
+    fill: #ff6b81;
+    animation: pulse 1s infinite;
+  }
 
-    .signature {
-      margin-top: 20px;
-      font-size: 1.4em;
-      font-weight: bold;
-    }
-  </style>
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+</style>
 </head>
-
 <body>
 
-  <!-- Animation des cœurs -->
-  <div class="falling-hearts">
-    <span style="left: 10%; animation-delay: 0s;">❤️</span>
-    <span style="left: 30%; animation-delay: 1s;">💖</span>
-    <span style="left: 50%; animation-delay: 2s;">💕</span>
-    <span style="left: 70%; animation-delay: 3s;">❤️</span>
-    <span style="left: 90%; animation-delay: 4s;">💘</span>
-  </div>
-
-  <div class="card">
-
-    <h1>💌 Une petite surprise pour toi...</h1>
-
-    <!-- Ta photo -->
-    <img src="photo.jpeg" alt="Notre photo ❤️">
+<div class="card">
+  <div class="card-body">
+    <h1>💌 Une déclaration pour toi...</h1>
 
     <p>
       Mon chouchou d’amour,<br><br>
-
-      Ce qui est incroyable, c’est que notre histoire a commencé simplement,
-      parce qu’on habitait dans le même appartement.<br><br>
-
-      Au début, c’était juste une rencontre… puis petit à petit,
-      on est devenus complices, naturellement, comme si c’était écrit.<br><br>
-
-      Aujourd’hui, je réalise à quel point tu es devenu important pour moi.
-      On partage tellement de choses, et surtout des fous rires
-      qui restent gravés dans mon cœur.<br><br>
-
-      Mounir, tu es la plus belle chose qui me soit arrivée. ❤️
+      Depuis le premier jour, tu as illuminé ma vie de mille sourires et
+      de moments inoubliables. Chaque instant passé à tes côtés
+      me rappelle combien je suis chanceuse de t’avoir.<br><br>
+      Ta douceur, ta patience et ton rire contagieux rendent mes journées
+      plus belles. Avec toi, chaque moment devient magique, chaque
+      banalité se transforme en souvenir précieux.<br><br>
+      Tu es mon confident, mon complice et mon refuge. Quand je pense à
+      nous, je me rends compte que chaque détail de notre histoire est
+      unique et merveilleux. Les fous rires, les balades, les soirées
+      tranquilles… tout prend un sens plus profond avec toi.<br><br>
+      Mounir, tu es mon soleil, ma joie et mon amour éternel. 💖
+      Je veux partager chaque seconde de ma vie avec toi, traverser
+      toutes les saisons à tes côtés et construire un futur rempli
+      d’amour, de complicité et de bonheur infini.<br><br>
+      Chaque jour avec toi est un cadeau que je veux chérir pour toujours.
+      Je t’aime plus que les mots ne pourront jamais le dire.
     </p>
 
-    <div class="heart">❤️</div>
+    <!-- Icône cœur pulsant -->
+    <svg class="heart-icon" stroke="currentColor" fill="currentColor"><use href="#Heart"/></svg>
 
-    <h1>JE T’AIME MOUNIR</h1>
+    <h2>JE T’AIME MOUNIR</h2>
 
-    <!-- Bouton romantique -->
-    <button onclick="loveMessage()">
-      💍 Veux-tu être mon pour toujours ?
-    </button>
-
-    <div class="signature">
-      Pour toujours, ton amour 💖
+   
+    <div class="fw-bold fs-5">
+      Pour toujours, ton amour <br>💖 Ta maguette 💖
     </div>
-
   </div>
+</div>
 
-  <script>
-    function loveMessage() {
-      alert("Mon amour Mounir 💕\n\nJe veux passer toute ma vie avec toi ❤️");
-    }
-  </script>
+<script>
+  
+
+  lucide.createIcons();
+</script>
 
 </body>
 </html>
